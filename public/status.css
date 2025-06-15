@@ -177,3 +177,14 @@ body {
     font-size: 1.3rem;
   }
 }
+
+/* Explicit status color for span text */
+.status-trusted span {
+  color: #28a745 !important;
+}
+.status-fraud span {
+  color: #ffc107 !important;
+}
+.status-blacklisted span {
+  color: #dc3545 !important;
+}

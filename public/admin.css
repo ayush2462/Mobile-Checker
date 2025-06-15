@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #e0ffe8, #b9f7c2);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.image-half {
+  flex: 1;
+  background: url("https://imgs.search.brave.com/xVWIwudzO_izL3VgVeCQXfAOyjd05ty9Lo3wiz21ZLk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvYmVhdXRpZnVs/LWdyZWVuLW1vdW50/YWluLWV2ZW5pbmct/bGFuZHNjYXBlLXZl/Y3Rvci1mbGF0LWls/bHVzdHJhdGlvbl85/Mzk3MTEtMTM5MC5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw")
+    center center/cover no-repeat;
+  border-radius: 0 2rem 2rem 0;
+  animation: fadeIn 1.2s ease;
+  min-height: 300px;
+}
+
+.form-half {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+form {
+  width: 100%;
+  max-width: 420px;
+  background-color: #fefefe;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: zoomIn 0.6s ease;
+}
+
+h2 {
+  text-align: center;
+  color: #191654;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  animation: fadeInUp 0.7s ease-out; /* Animate the heading */
+}
+
+/* New CSS for animating individual form groups */
+.form-group {
+  margin-bottom: 1rem; /* Add some spacing between groups */
+  animation: fadeInUp 0.7s ease-out forwards; /* Apply animation to each group */
+  opacity: 0; /* Start hidden for animation */
+}
+
+/* Stagger animation for each form group */
+.form-group:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.form-group:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.form-group:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.form-group:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.form-group:nth-child(5) {
+  animation-delay: 0.5s;
+}
+/* You can add more nth-child rules if you have more form groups */
+
+
+.form-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-control {
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.2);
+}
+
+.form-check-input:checked {
+  background-color: #198754;
+  border-color: #198754;
+}
+
+.btn-success {
+  background: linear-gradient(90deg, #43c6ac 0%, #191654 100%);
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  animation: fadeInUp 0.7s ease-out forwards; /* Animate the button */
+  animation-delay: 0.6s; /* Delay the button animation */
+  opacity: 0; /* Start hidden for animation */
+}
+
+.btn-success:hover {
+  background: linear-gradient(90deg, #191654 0%, #43c6ac 100%);
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(25, 22, 84, 0.25);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .container-fluid {
+    flex-direction: column;
+  }
+  .image-half {
+    border-radius: 0 0 2rem 2rem;
+    height: 220px;
+  }
+}

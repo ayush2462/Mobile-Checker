@@ -73,9 +73,13 @@ app.post("/add-status", (req, res) => {
   const existingIndex = data.findIndex((row) => row.mobile === mobile);
 
   if (existingIndex !== -1) {
-    data[existingIndex] = { name, mobile, status };
+    return res
+      .status(400)
+      .send("This mobile number already exists in the system.");
   } else {
     data.push({ name, mobile, status });
+    writeStatusData(data);
+    res.redirect("/admin.html");
   }
 
   writeStatusData(data);
