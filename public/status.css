@@ -1,0 +1,179 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  /* Using a browser-themed background image */
+  background: url("https://imgs.search.brave.com/fPpulk4-5Qn0ky1NeNZZ1bf4cwJVEdrEQ0UN9DOXiE0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZHJpYmJibGUuY29t/L3VzZXJ1cGxvYWQv/MzIyOTQ5NzcvZmls/ZS9vcmlnaW5hbC01/MTg2YmFlODA0MWVi/N2Y5YmJkYjZjODdj/YTkwY2E2OS5wbmc_/cmVzaXplPTQwMHgw")
+    no-repeat center center / cover;
+  color: #1c1f33;
+  overflow: hidden;
+}
+
+/* Page Header */
+.status-heading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffffee;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeSlideDown 1s ease forwards;
+  opacity: 0;
+}
+
+/* Info Card */
+.card-container {
+  max-width: 600px;
+  width: 90%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  animation: zoomInCard 1.4s ease forwards;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover glow */
+.card-container:hover {
+  box-shadow: 0 0 30px rgba(63, 81, 181, 0.4);
+}
+
+/* Info Items */
+#statusResult > div {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInItem 1s ease forwards;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0.8rem;
+  margin-bottom: 1.2rem;
+  padding: 1.1rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(63, 81, 181, 0.07);
+  transition: background 0.3s;
+}
+#statusResult > div:nth-child(1) {
+  animation-delay: 0.6s;
+  background: linear-gradient(90deg, #e3ffe8 0%, #d9e7ff 100%);
+}
+#statusResult > div:nth-child(2) {
+  animation-delay: 1.2s;
+  background: linear-gradient(90deg, #fffbe3 0%, #ffe3e3 100%);
+}
+#statusResult > div:nth-child(3) {
+  animation-delay: 1.8s;
+  background: linear-gradient(90deg, #e3e3ff 0%, #e3f6ff 100%);
+}
+
+#statusResult strong {
+  font-size: 1.2rem;
+  color: #3f51b5;
+  letter-spacing: 0.2px;
+}
+
+#statusResult span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Status Icon */
+.status-icon {
+  margin-right: 8px;
+  font-size: 1.8rem;
+  vertical-align: middle;
+}
+
+/* Blinking Color Animation */
+.status-trusted {
+  color: #28a745;
+  animation: blink 1.5s infinite ease-in-out;
+  text-shadow: 0 0 8px #b6f5c7;
+}
+
+.status-fraud {
+  color: #ffc107;
+  animation: blink 1.5s infinite ease-in-out;
+  text-shadow: 0 0 8px #fff3cd;
+}
+
+.status-blacklisted {
+  color: #dc3545;
+  animation: blink 1.5s infinite ease-in-out;
+  text-shadow: 0 0 8px #f8d7da;
+}
+
+/* Keyframes */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomInCard {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInItem {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .status-heading {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .card-container {
+    padding: 2rem 1.5rem;
+  }
+
+  #statusResult > div {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+
+  #statusResult span {
+    font-size: 1.1rem;
+  }
+
+  .status-icon {
+    font-size: 1.3rem;
+  }
+}
