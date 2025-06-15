@@ -1,156 +1,169 @@
-body {
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+
+/* Reset & base style */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #e0ffe8, #b9f7c2);
+  background: #1e1e2f; /* dark background */
+  color: #2c3e50;
+}
+
+/* Background for admin page */
+.admin-bg {
+  background: linear-gradient(to right, #232526, #414345);
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
-.container-fluid {
-  display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
-}
-
+/* Image section */
 .image-half {
-  flex: 1;
-  background: url("https://imgs.search.brave.com/xVWIwudzO_izL3VgVeCQXfAOyjd05ty9Lo3wiz21ZLk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS12ZWN0/b3IvYmVhdXRpZnVs/LWdyZWVuLW1vdW50/YWluLWV2ZW5pbmct/bGFuZHNjYXBlLXZl/Y3Rvci1mbGF0LWls/bHVzdHJhdGlvbl85/Mzk3MTEtMTM5MC5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw")
+  background: url("assets/vecteezy_sunset-lake-landscape-illustration_.jpg")
     center center/cover no-repeat;
-  border-radius: 0 2rem 2rem 0;
-  animation: fadeIn 1.2s ease;
-  min-height: 300px;
+  animation: fadeInLeft 1s ease-in-out;
+  border-right: 2px solid #444;
 }
 
+/* Form container */
 .form-half {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: transparent;
   padding: 2rem;
-  animation: fadeInUp 1s ease;
+  animation: fadeInRight 1s ease-in-out;
 }
 
+/* Form design */
 form {
-  width: 100%;
-  max-width: 420px;
-  background-color: #fefefe;
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  animation: zoomIn 0.6s ease;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 450px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-h2 {
-  text-align: center;
+form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
+}
+
+form h2 {
   color: #191654;
+  font-weight: bold;
+  text-align: center;
   margin-bottom: 1.5rem;
-  font-weight: 700;
-  animation: fadeInUp 0.7s ease-out; /* Animate the heading */
+  letter-spacing: 1px;
 }
 
-/* New CSS for animating individual form groups */
-.form-group {
-  margin-bottom: 1rem; /* Add some spacing between groups */
-  animation: fadeInUp 0.7s ease-out forwards; /* Apply animation to each group */
-  opacity: 0; /* Start hidden for animation */
-}
-
-/* Stagger animation for each form group */
-.form-group:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.form-group:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.form-group:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.form-group:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.form-group:nth-child(5) {
-  animation-delay: 0.5s;
-}
-/* You can add more nth-child rules if you have more form groups */
-
-
-.form-label {
-  font-weight: 600;
-  color: #333;
-}
-
+/* Input fields */
 .form-control {
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
+  border-radius: 0.6rem;
+  padding: 0.75rem 1rem;
+  background-color: #f9f9f9;
   transition: all 0.3s ease-in-out;
 }
 
 .form-control:focus {
-  border-color: #28a745;
-  box-shadow: 0 0 8px rgba(40, 167, 69, 0.2);
+  border-color: #5b9df9;
+  box-shadow: 0 0 0 3px rgba(91, 157, 249, 0.3);
+  background-color: #fff;
 }
 
+.form-control:hover {
+  background-color: #eef4fc;
+  border-color: #88c0f7;
+}
+
+/* Radio buttons */
 .form-check-input:checked {
-  background-color: #198754;
-  border-color: #198754;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
+/* File input custom styles */
+input[type="file"] {
+  border: 2px dashed #999;
+  background-color: #f0f4f8;
+  transition: all 0.3s ease-in-out;
+  padding: 0.7rem;
+  cursor: pointer;
+  border-radius: 0.6rem;
+}
+
+input[type="file"]:hover {
+  background-color: #e2efff;
+  border-color: #3399ff;
+  box-shadow: 0 0 10px rgba(51, 153, 255, 0.3);
+}
+
+input[type="file"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+/* Button styles */
 .btn-success {
-  background: linear-gradient(90deg, #43c6ac 0%, #191654 100%);
+  background: linear-gradient(to right, #43c6ac, #191654);
   border: none;
   font-weight: 600;
-  transition: all 0.3s ease-in-out;
-  animation: fadeInUp 0.7s ease-out forwards; /* Animate the button */
-  animation-delay: 0.6s; /* Delay the button animation */
-  opacity: 0; /* Start hidden for animation */
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn-success:hover {
-  background: linear-gradient(90deg, #191654 0%, #43c6ac 100%);
+  background: linear-gradient(to right, #191654, #43c6ac);
   transform: scale(1.03);
-  box-shadow: 0 4px 16px rgba(25, 22, 84, 0.25);
+  box-shadow: 0 0 12px rgba(67, 198, 172, 0.4);
 }
 
 /* Animations */
-@keyframes fadeInUp {
-  0% {
+@keyframes fadeInRight {
+  from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateX(60px);
   }
-  100% {
+  to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-@keyframes fadeIn {
-  0% {
+@keyframes fadeInLeft {
+  from {
     opacity: 0;
+    transform: translateX(-60px);
   }
-  100% {
+  to {
     opacity: 1;
+    transform: translateX(0);
   }
 }
 
-@keyframes zoomIn {
-  0% {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Responsive tweaks */
+/* Responsive */
 @media (max-width: 768px) {
   .container-fluid {
     flex-direction: column;
   }
+
   .image-half {
-    border-radius: 0 0 2rem 2rem;
     height: 220px;
+    border-right: none;
+    border-bottom: 2px solid #444;
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  form {
+    width: 100%;
+    margin-top: 2rem;
   }
 }
