@@ -15,21 +15,24 @@
     <div class="col-md-6 image-half"></div>
 
     <div class="col-md-6 form-half">
-      <form method="POST" action="/add-status"
+      <form method="POST" action="/add-status" enctype="multipart/form-data"
         class="p-4 shadow-lg bg-white rounded w-75 animate__animated animate__fadeInRight">
         <h2 class="mb-4 text-center">Update Mobile Status</h2>
+
         <div class="mb-3">
           <label class="form-label">Mediator Name</label>
           <input type="text" name="name" class="form-control">
         </div>
+
         <div class="mb-3">
           <label class="form-label">Mediator Number</label>
           <input type="text" name="mobile" class="form-control" pattern="^[0-9]{10}$" maxlength="10">
         </div>
+
         <div class="mb-3">
           <label class="form-label d-block">Status</label>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="status" id="trusted" value="Trusted" required>
+            <input class="form-check-input" type="radio" name="status" id="trusted" value="Trusted">
             <label class="form-check-label" for="trusted">Trusted</label>
           </div>
           <div class="form-check form-check-inline">
@@ -41,9 +44,10 @@
             <label class="form-check-label" for="blacklisted">Blacklisted</label>
           </div>
         </div>
+
         <div class="mb-4">
           <label class="form-label">Upload Excel File</label>
-          <input type="file" id="excelFile" accept=".xlsx,.xls" class="form-control" />
+          <input type="file" id="excelFile" name="excelFile" accept=".xlsx,.xls" class="form-control" />
           <small class="text-muted">Upload a file with headers: name, mobile, status</small>
         </div>
 
